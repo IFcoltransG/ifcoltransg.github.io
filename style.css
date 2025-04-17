@@ -1,0 +1,99 @@
+:root {
+  --standard-border-radius: 0px;
+  /* Default (light) theme */
+  --bg: #F6F7F8;
+  --accent-bg: #EAECF1;
+  --text: #011627;
+  --text-light: #194564;
+  --border: #2F7DFF;
+  --accent: #2F7DFF;
+  --accent-hover: #005DFD;
+  --accent-text: var(--bg);
+  --code: #EE4266;
+  --preformatted: #022848;
+  --marked: #519872;
+  --disabled: #E0E4E7;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #011627;
+    --accent-bg: #022848;
+    --text: #F6F7F8;
+    --text-light: #194564;
+    --accent: #2F7DFF;
+    --accent-hover: #419AFF;
+    --accent-text: var(--bg);
+    --code: #EE4266;
+    --preformatted: #EAECF1;
+    --disabled: #220F13;
+  }
+}
+
+
+
+body>header {
+  border-bottom: 2px solid var(--border);
+}
+
+body>footer {
+  border-top: 2px solid var(--border);
+}
+
+button,
+.button,
+a.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  border: 2px solid var(--accent);
+}
+
+header nav a,
+header nav a:visited {
+  border: 2px solid var(--border);
+}
+
+aside,
+details,
+pre,
+progress {
+  border: 2px solid var(--border);
+}
+
+article,
+fieldset,
+dialog {
+  border: 2px solid var(--border);
+}
+
+section {
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+td,
+th {
+  border: 2px solid var(--border);
+}
+
+textarea,
+select,
+input {
+  border: 2px solid var(--border);
+}
+
+hr {
+  height: 2px;
+}
+
+@media print {
+  hr {
+    border-top: 2px solid var(--border);
+  }
+
+  mark {
+    border: 2px solid var(--border);
+  }
+}
