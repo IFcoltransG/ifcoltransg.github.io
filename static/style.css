@@ -1,0 +1,38 @@
+:root {
+  --standard-border-radius: 0px;
+  --border-width: 2px;
+  /* Default (light) theme */
+  --bg: #F6F7F8;
+  --accent-bg: #eaf2ff;
+  --text: #011627;
+  --text-light: #194564;
+  --border: #2F7DFF;
+  --accent: #2F7DFF;
+  --accent-hover: #005DFD;
+  --accent-text: var(--bg);
+  --code: #EE4266;
+  --preformatted: #022848;
+  --marked: #519872;
+  --disabled: #E0E4E7;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #011627;
+    --accent-bg: #022848;
+    --text: #F6F7F8;
+    --text-light: #194564;
+    --accent: #2F7DFF;
+    --accent-hover: #419AFF;
+    --accent-text: var(--bg);
+    --code: #EE4266;
+    --preformatted: #eaf2ff;
+    --disabled: #220F13;
+  }
+}
+
+a {
+  display: inline-block
+}
+

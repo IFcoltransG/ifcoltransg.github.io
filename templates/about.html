@@ -1,0 +1,8 @@
+<p> Here are some links to things I've made: </p>
+<ul>
+  <% for link in Self::LINKS { %>
+    <li>
+      <%- link.render()? %>
+    </li>
+    <% } %>
+</ul>

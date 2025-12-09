@@ -1,0 +1,9 @@
+[package]
+name = "ifcoltransg-site"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cap-std = { version = "3.4.3", features = ["fs_utf8"] }
+chrono = "0.4.40"
+sailfish = "0.10.1"
