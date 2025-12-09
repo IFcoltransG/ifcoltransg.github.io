@@ -3,13 +3,19 @@ use cap_std::{
     fs_utf8::{Dir, camino::Utf8Path as Path},
 };
 
-use std::{fs::remove_dir_all, io::Result};
+use std::{
+    fs::remove_dir_all,
+    io::{ErrorKind, Result},
+};
 
 pub(crate) fn create_output_dir(
     output_dir_path: &Path,
     ambient_authority: AmbientAuthority,
 ) -> Result<Dir> {
-    remove_dir_all(output_dir_path)?;
+    remove_dir_all(output_dir_path).or_else(|err| match err.kind() {
+        ErrorKind::NotFound => Ok(()),
+        _ => Err(err),
+    })?;
     Dir::create_ambient_dir_all(output_dir_path, ambient_authority)?;
     let output_dir = Dir::open_ambient_dir(output_dir_path, ambient_authority)?;
     Ok(output_dir)
