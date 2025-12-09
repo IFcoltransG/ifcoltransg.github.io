@@ -39,11 +39,23 @@ impl About {
     const LINKS: &[Link<'static>] = &[
         Link::new("BUUZA!! Wiki", "./buuza-wiki/"),
         Link::new("LEB 128", "./lebanon-leb128-converter/"),
-        Link::new("It Is An Innkeeper", "https://ifcoltransg.itch.io/innkeeper"),
-        Link::new("Maze Gallery", "https://ifdb.org/viewgame?id=c9bc9vl2paxqa98d"),
-        Link::new("Lettersize Sonnetling", "https://taper.badquar.to/14/lettersize_sonnetling.html"),
+        Link::new(
+            "It Is An Innkeeper",
+            "https://ifcoltransg.itch.io/innkeeper",
+        ),
+        Link::new(
+            "Maze Gallery",
+            "https://ifdb.org/viewgame?id=c9bc9vl2paxqa98d",
+        ),
+        Link::new(
+            "Lettersize Sonnetling",
+            "https://taper.badquar.to/14/lettersize_sonnetling.html",
+        ),
         Link::new("Esoteric Python Guide", "./esoteric-python-guide/"),
-        Link::new("Code Guessing entries", "https://codeguessing.gay/stats/IFcoltransG"),
+        Link::new(
+            "Code Guessing entries",
+            "https://codeguessing.gay/stats/IFcoltransG",
+        ),
     ];
 }
 
@@ -65,8 +77,10 @@ impl RenderStatic for MoreInfo {
 
 fn main() -> Result<(), Box<dyn Error>> {
     // This directory will be wiped if it exists
+    eprintln!("Getting output directory");
     let output_dir = create_output_dir(Path::new("./docs"), ambient_authority())?;
 
+    eprintln!("Collecting metadata");
     let now = Utc::now().duration_round(TimeDelta::hours(3)).unwrap();
 
     let year = format!("{}", now.year());
@@ -79,6 +93,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         time_tooltip,
     };
 
+    eprintln!("Constructing pages");
     let pages = &[
         Home::PAGE,
         MoreInfo::PAGE,
@@ -86,7 +101,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     ];
     let navbar = &pages.clone().map(|(_, item, _)| item);
 
-    // render each page
+    eprintln!("Rendering pages");
     for (title, item, content) in pages {
         let content: &dyn Fn() -> RenderResult = content;
         let navbar = &set_current(item.path, navbar);
@@ -101,6 +116,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         output_dir.write(Path::new(&item.path), page.render().unwrap())?
     }
 
+    eprintln!("Writing static files");
     write_static_files(&output_dir)?;
 
     Ok(())
