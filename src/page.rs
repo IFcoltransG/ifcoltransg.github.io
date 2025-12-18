@@ -72,8 +72,10 @@ pub(crate) trait RenderStatic: TemplateSimple + Default {
 
 pub fn write_static_files(output_dir: &cap_std::fs_utf8::Dir) -> IOResult<()> {
     let favicon = static_byte_file!("favicon.ico");
-    let css = [static_file!("style.css"), static_file!("simple.min.css")];
+    let robots = static_file!("robots.txt");
+    let css = [static_file!("style.css"), static_file!("simple.min.css"), static_file!("webring.css")];
     favicon.write(output_dir)?;
+    robots.write(output_dir)?;
     for css_file in css {
         css_file.write(output_dir)?
     }
