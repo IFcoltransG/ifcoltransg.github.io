@@ -19,3 +19,5 @@
     You wrote this site to give me a place to find your things.
   </li>
 </ol>
+
+<p> <%- Link::new("Your", About::PATH).render()? %> things include <%- Link::new("more info", MoreInfo::PATH).render()? %> about the site, a <%- Link::new("crossroads", Rings::PATH).render()? %> of webrings, a <%- Link::new("small trove", Treasures::PATH).render()? %>, and potentially other pages for me to find. </p>

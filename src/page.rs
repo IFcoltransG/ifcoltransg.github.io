@@ -63,9 +63,10 @@ pub(crate) trait RenderStatic: TemplateSimple + Default {
     const TITLE: &'static str;
     const PATH: &'static str;
     const TEXT: &'static str;
+    const LINK: Link<'static>= Link::new(Self::TEXT, Self::PATH);
     const PAGE: (&'static str, Link<'static>, &dyn Fn() -> RenderResult) = (
         Self::TITLE,
-        Link::new(Self::TEXT, Self::PATH),
+        Self::LINK,
         &Self::RENDER,
     );
 }
