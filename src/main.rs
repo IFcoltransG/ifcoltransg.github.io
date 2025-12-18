@@ -17,7 +17,7 @@ use page::{Link, Navbar, Page, RenderStatic, Time, write_static_files};
 struct Home;
 
 impl RenderStatic for Home {
-    const TITLE: &str = "IFcoltransG's Spot";
+    const TITLE: &str = "IFcoltransG's Alcove";
     const PATH: &str = "index.html";
     const TEXT: &str = "Home";
 }
