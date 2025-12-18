@@ -38,8 +38,11 @@ struct About;
 
 impl About {
     const LINKS: &[Link<'static>] = &[
+        Link::new(
+            "Lettersize Sonnetling",
+            "https://taper.badquar.to/14/lettersize_sonnetling.html",
+        ),
         Link::new("BUUZA!! Wiki", "./buuza-wiki/"),
-        Link::new("LEB 128", "./lebanon-leb128-converter/"),
         Link::new(
             "It Is An Innkeeper",
             "https://ifcoltransg.itch.io/innkeeper",
@@ -48,11 +51,8 @@ impl About {
             "Maze Gallery",
             "https://ifdb.org/viewgame?id=c9bc9vl2paxqa98d",
         ),
-        Link::new(
-            "Lettersize Sonnetling",
-            "https://taper.badquar.to/14/lettersize_sonnetling.html",
-        ),
         Link::new("Esoteric Python Guide", "./esoteric-python-guide/"),
+        Link::new("LEB 128", "./lebanon-leb128-converter/"),
         Link::new(
             "Code Guessing entries",
             "https://codeguessing.gay/stats/IFcoltransG",
