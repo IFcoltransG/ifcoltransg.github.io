@@ -75,6 +75,16 @@ impl RenderStatic for MoreInfo {
     const TEXT: &str = "More Info";
 }
 
+#[derive(TemplateSimple, Debug, Copy, Clone, Default)]
+#[template(path = "rings.html")]
+struct Rings;
+
+impl RenderStatic for Rings {
+    const TITLE: &str = "Webrings";
+    const PATH: &str = "rings.html";
+    const TEXT: &str = "Rings";
+}
+
 fn main() -> Result<(), Box<dyn Error>> {
     // This directory will be wiped if it exists
     eprintln!("Getting output directory");
@@ -97,7 +107,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let pages = &[
         Home::PAGE,
         MoreInfo::PAGE,
-        About::PAGE, /* Blog::PAGE, About::PAGE*/
+        Rings::PAGE,
+        About::PAGE, /* Blog::PAGE*/
     ];
     let navbar = &pages.clone().map(|(_, item, _)| item);
 
