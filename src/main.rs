@@ -96,6 +96,16 @@ impl RenderStatic for Treasures {
     const TEXT: &'static str = "Treasures";
 }
 
+#[derive(TemplateSimple, Debug, Copy, Clone, Default)]
+#[template(path = "bookmarks.html")]
+struct Bookmarks;
+
+impl RenderStatic for Bookmarks {
+    const TITLE: &'static str = "Bookmarks";
+    const PATH: &'static str = "bookmarks.html";
+    const TEXT: &'static str = "Bookmarks";
+}
+
 fn main() -> Result<(), Box<dyn Error>> {
     // This directory will be wiped if it exists
     eprintln!("Getting output directory");
@@ -119,6 +129,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         Home::PAGE,
         MoreInfo::PAGE,
         Rings::PAGE,
+        Bookmarks::PAGE,
         Treasures::PAGE,
         About::PAGE, /* Blog::PAGE*/
     ];
