@@ -7,6 +7,7 @@ use std::error::Error;
 mod output_dir;
 mod output_file;
 mod page;
+mod treasures;
 
 use output_dir::create_output_dir;
 use page::{Link, Navbar, Page, RenderStatic, Time, write_static_files};
@@ -85,6 +86,16 @@ impl RenderStatic for Rings {
     const TEXT: &str = "Rings";
 }
 
+#[derive(TemplateSimple, Debug, Copy, Clone, Default)]
+#[template(path = "treasures.html")]
+struct Treasures;
+
+impl RenderStatic for Treasures {
+    const TITLE: &'static str = "Treasures";
+    const PATH: &'static str = "treasures.html";
+    const TEXT: &'static str = "Treasures";
+}
+
 fn main() -> Result<(), Box<dyn Error>> {
     // This directory will be wiped if it exists
     eprintln!("Getting output directory");
@@ -108,6 +119,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         Home::PAGE,
         MoreInfo::PAGE,
         Rings::PAGE,
+        Treasures::PAGE,
         About::PAGE, /* Blog::PAGE*/
     ];
     let navbar = &pages.clone().map(|(_, item, _)| item);

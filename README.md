@@ -1,4 +1,2 @@
-# Uninitialised Website
-Keep watch!
-
-For now, see this [link to more links](https://ifcoltransglinks.wordpress.com/).
+# The code for my website
+You may view it at [this link](https://ifcoltransg.github.io/).
