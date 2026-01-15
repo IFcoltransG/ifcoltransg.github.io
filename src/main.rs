@@ -81,7 +81,7 @@ impl RenderStatic for MoreInfo {
 struct Rings;
 
 impl RenderStatic for Rings {
-    const TITLE: &str = "Webrings";
+    const TITLE: &str = "IFcoltransG's Webrings";
     const PATH: &str = "rings.html";
     const TEXT: &str = "Rings";
 }
